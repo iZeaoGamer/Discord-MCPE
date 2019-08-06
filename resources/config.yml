@@ -14,7 +14,7 @@ webhook_url: ""
 chat_url: "" 
 # Webhook url for the /discord command and when somebody chats. Set to 0 to use default.
 
-username: "" 
+username: "ZectorPE Report" 
 # The username the plugin uses in discord.
 
 chat_username: "" 
@@ -55,7 +55,7 @@ death_message: ""
 ############################################################
 
 command: true
-# Enable/disable "/discord"
+# Enable/disable "/report"
 
 chat_prefix: "!" 
 # Prefix for chat. See README.md for more info.
