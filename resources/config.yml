@@ -8,10 +8,10 @@
 #               Main options section (below)               #
 ############################################################
 
-webhook_url: ""
+webhook_url: "https://discordapp.com/api/webhooks/608428210895716372/L1pMti0k7UrKJ3R30zBjpivnoeW-Nzdp-pd5-TPpRSUZTXtX3oFy-rNZoQGE3js4cZ0N"
 # Your discord webhook url.
 
-chat_url: "" 
+chat_url: "https://discordapp.com/api/webhooks/608428210895716372/L1pMti0k7UrKJ3R30zBjpivnoeW-Nzdp-pd5-TPpRSUZTXtX3oFy-rNZoQGE3js4cZ0N" 
 # Webhook url for the /discord command and when somebody chats. Set to 0 to use default.
 
 username: "ZectorPE Report" 
