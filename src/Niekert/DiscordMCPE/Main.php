@@ -56,18 +56,19 @@ class Main extends PluginBase implements Listener
      */
     public function onCommand(CommandSender $sender, Command $cmd, string $label, array $args): bool
     {
-        if ($cmd->getName() == 'discord') {
+        if ($cmd->getName() == 'report') {
             if ($this->commandopt) {
-                $ppa = $this->getServer()->getPluginManager()->getPlugin('PurePerms');
-                if (!isset($args[0])) {
-                    $sender->sendMessage(C::RED . 'Please provide an argument! Usage: /discord (message).');
-                } elseif ($this->pp) {
-                    if ($sender instanceof Player) {
+             $ppa = $this->getServer()->getPluginManager()->getPlugin('PurePerms');
+                if (!isset($args[1])) {
+                    $sender->sendMessage(C::RED . 'Please provide an argument! Usage: /report <player> (reason).');
+             //   } elseif ($this->pp) {
+       $player = Server::getInstance()->getPlayerExact($args[0]);
+                   // if ($player instanceof Player) {
                         $format = str_replace(['{rank}', '{player}', '{message}'], [C::clean($ppa->getUserDataMgr()->getGroup($sender)), $sender->getName(), implode(' ', $args)], $this->chatformat);
                         $this->sendMessage($this->chaturl, $format, $sender->getName(), $this->chatuser);
-                    } else {
-                        $this->getLogger()->notice('You cannot execute this command as console!');
-                    }
+                 //   } else {
+                    //  $this->getLogger()->notice('You cannot execute this');
+                 //   }
                 } else {
                     $format = str_replace(['{player}', '{message}'], [C::clean($sender->getName()), implode(' ', $args)], $this->chatformat);
                     $this->sendMessage($this->chaturl, $format, $sender->getName(), $this->chatuser);
@@ -147,7 +148,7 @@ class Main extends PluginBase implements Listener
             }
         }
         if ($result['success']) {
-            $player->sendMessage(C::AQUA . '[Discord-MCPE] ' . C::GREEN . 'Discord message was sent!');
+            $player->sendMessage(C::AQUA . '[Report] ' . C::GREEN . 'Report was sent to a staff member!');
         } else {
             if ($this->getConfig()->get('debug')) {
                 $this->getLogger()->error(C::RED . 'Error: ' . $result['Error']);
