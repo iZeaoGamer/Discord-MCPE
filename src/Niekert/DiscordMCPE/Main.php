@@ -61,16 +61,16 @@ class Main extends PluginBase implements Listener
              $ppa = $this->getServer()->getPluginManager()->getPlugin('PurePerms');
                 if (!isset($args[1])) {
                     $sender->sendMessage(C::RED . 'Please provide an argument! Usage: /report <player> (reason).');
-             //   } elseif ($this->pp) {
+                } elseif ($this->pp) {
        $player = Server::getInstance()->getPlayerExact($args[0]);
                    // if ($player instanceof Player) {
-                        $format = str_replace(['{rank}', '{player}', '{message}'], [C::clean($ppa->getUserDataMgr()->getGroup($sender)), $sender->getName(), implode(' ', $args)], $this->chatformat);
+                        $format = str_replace(['{motd}', '{rank}', '{player}', '{message}'], [$this->getServer()->getMotd(), C::clean($ppa->getUserDataMgr()->getGroup($sender)), $sender->getName(), implode(' ', $args)], $this->chatformat);
                         $this->sendMessage($this->chaturl, $format, $sender->getName(), $this->chatuser);
                  //   } else {
                     //  $this->getLogger()->notice('You cannot execute this');
                  //   }
                 } else {
-                    $format = str_replace(['{player}', '{message}'], [C::clean($sender->getName()), implode(' ', $args)], $this->chatformat);
+                    $format = str_replace(['{motd}', '{player}', '{message}'], [$this->getServer()->getMotd(), C::clean($sender->getName()), implode(' ', $args)], $this->chatformat);
                     $this->sendMessage($this->chaturl, $format, $sender->getName(), $this->chatuser);
                 }
             } else {
